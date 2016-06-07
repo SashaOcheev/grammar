@@ -8,9 +8,10 @@
 INT ("+"|"-")?(("0")|([1-9][0-9]*))
 FLOAT ({INT})"."([0-9]+)
 BOOL true|false
-CHAR \'.\'
-ID [a-zA-Z_][a-zA-Z0-9_]*
 TYPENAME "int" | "float" | "bool" | "char"
+ID [a-zA-Z_][a-zA-Z0-9_]*
+CHAR \'.\'
+
 
 /* Опция, необходимая для языков с препроцессорами и #include,
 в нашем случае не нужна */
@@ -52,4 +53,4 @@ TYPENAME "int" | "float" | "bool" | "char"
 {FLOAT}		return FLOAT;
 {CHAR}		return CHAR;
 {ID}		return ID;
-[ \t\n]+		/* skip */;
+[ \t\n]+	/* skip */;
