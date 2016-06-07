@@ -8,7 +8,7 @@
 INT ("+"|"-")?(("0")|([1-9][0-9]*))
 FLOAT ({INT})"."([0-9]+)
 BOOL true|false
-TYPENAME "int" | "float" | "bool" | "char"
+TYPENAME int | float | bool | char
 ID [a-zA-Z_][a-zA-Z0-9_]*
 CHAR \'.\'
 
@@ -19,13 +19,13 @@ CHAR \'.\'
 
 %%
 
-"read" 		return READ;
-"print"		return PRINT;
-"while"		return WHILE;
-"do"		return DO;
-"if"    	return IF;
-"else"  	return ELSE;
-"const" 	return CONST;
+read 		return READ;
+print		return PRINT;
+while		return WHILE;
+do			return DO;
+if    		return IF;
+else  		return ELSE;
+const 		return CONST;
 "{"			return '{';
 "}"			return '}';
 "("     	return '(';
