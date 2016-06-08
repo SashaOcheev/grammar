@@ -8,7 +8,7 @@
 INT ("+"|"-")?(("0")|([1-9][0-9]*))
 FLOAT ({INT})"."([0-9]+)
 BOOL true|false
-TYPENAME int | float | bool | char
+TYPENAME int|float|bool|char
 ID [a-zA-Z_][a-zA-Z0-9_]*
 CHAR \'.\'
 
@@ -19,6 +19,7 @@ CHAR \'.\'
 
 %%
 
+{TYPENAME}	return TYPENAME;
 read 		return READ;
 print		return PRINT;
 while		return WHILE;
