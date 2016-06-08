@@ -71,19 +71,19 @@ void checker_error (char const *s) {
 
 program : statement_list
 
-statement_list : statement | statement_list statement
+statement_list : statement ';'| statement_list statement ';'
 
-statement : READ paren_expression ';'
-		  | PRINT paren_expression ';'
-		  | IF paren_expression statement ELSE statement ';'
-          | IF paren_expression statement ';'
-          | WHILE paren_expression statement ';'
-          | DO statement WHILE paren_expression ';'
-          | '{' statement_list '}'
-		  |	expression ';'
-		  | declaration ';'
-		  | assign ';'
-		  | ';'
+statement_type : statement_list | '{' statement_list '}'
+
+statement : READ paren_expression
+		  | PRINT paren_expression
+		  | IF paren_expression statement_type ELSE statement_type
+          | IF paren_expression statement_type
+          | WHILE paren_expression statement_type
+          | DO statement_type WHILE paren_expression
+		  |	expression
+		  | declaration
+		  | assign
 
 paren_expression : '(' expression ')'
 
@@ -93,7 +93,7 @@ declaration : const_declaration
 
 const_declaration : CONST variable_declaration
 
-array_declaration : variable_declaration '[' arithmetic_expression ']'
+array_declaration : variable_declaration index
 
 atom_declaration : variable_declaration
 				 | variable_declaration '=' expression
