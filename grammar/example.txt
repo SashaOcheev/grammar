@@ -1,0 +1,33 @@
+float arr1[2][2];
+arr1[0][0] = 1.1; arr1[0][1] = 1.2; arr1[1][0] = 2.1; arr1[1][1] = 2.2;
+float arr2[2][2];
+arr2[0][0] = 1.1; arr2[0][1] = 1.2; arr2[1][0] = 2.1; arr2[1][1] = 2.2;
+int i = 0;
+int j;
+while (i < 2)
+{
+	j = 0;
+	while (j < 2)
+		read(arr2[i][j]);
+	;
+};
+
+float res[2][2];
+arr2[0][0] = 0.0; arr2[0][1] = 0.0; arr2[1][0] = 0.0; arr2[1][1] = 0.0;
+i = 0;
+while (i < 2)
+{
+        j = 0;
+        while (j < 2)
+			res[i][j] = res[i][j] + arr1[i][j] + arr2[j][i];
+	;
+};
+
+i = 0;
+while (i < 2)
+{
+	j = 0;
+	while (j < 2)
+		print(res[i][j]);
+	;
+};
